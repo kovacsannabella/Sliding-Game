@@ -14,5 +14,22 @@ export class Mezo{
 
     }
 
+    szamotMozgat(x: number, y: number){
+        const regiHely = this.y * this.meret + this.x;
+        const regiDiv = document.querySelectorAll('.grid-item')[regiHely];
+        if (regiDiv) regiDiv.innerHTML = '';
+
+        this.x = x;
+        this.y = y;
+
+        const ujHely = y * this.meret + x;
+        const ujDiv = document.querySelectorAll('.grid-item')[ujHely];
+        if (ujDiv) {
+            const div = this.Megjelenit();
+            ujDiv.appendChild(div);
+        }
+
+    }
+
 
 }
