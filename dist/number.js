@@ -1,7 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.Mezo = void 0;
-class Mezo {
+export class Mezo {
     constructor(ertek, mezok, meret) {
         this.ertek = ertek;
         this.x = 0;
@@ -61,4 +58,3 @@ class Mezo {
         return null;
     }
 }
-exports.Mezo = Mezo;
