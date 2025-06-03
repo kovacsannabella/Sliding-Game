@@ -1,53 +1,56 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Mezo = void 0;
-class Mezo {
-    constructor(ertek, mezok, meret) {
+var Mezo = /** @class */ (function () {
+    function Mezo(ertek, mezok, meret) {
         this.ertek = ertek;
         this.x = 0;
         this.y = 0;
         this.mezok = mezok;
         this.meret = meret;
     }
-    szamotMozgat(x, y) {
-        const regiHely = this.y * this.meret + this.x;
-        const regiDiv = document.querySelectorAll('.grid-item')[regiHely];
+    Mezo.prototype.szamotMozgat = function (x, y) {
+        var regiHely = this.y * this.meret + this.x;
+        var regiDiv = document.querySelectorAll('.grid-item')[regiHely];
         if (regiDiv)
             regiDiv.innerHTML = '';
         this.x = x;
         this.y = y;
-        const ujHely = y * this.meret + x;
-        const ujDiv = document.querySelectorAll('.grid-item')[ujHely];
+        var ujHely = y * this.meret + x;
+        var ujDiv = document.querySelectorAll('.grid-item')[ujHely];
         if (ujDiv) {
-            const div = this.megjelenit();
+            var div = this.megjelenit();
             ujDiv.appendChild(div);
         }
-    }
-    megjelenit() {
-        const div = document.createElement('div');
+    };
+    Mezo.prototype.megjelenit = function () {
+        var _this = this;
+        var div = document.createElement('div');
         div.className = 'number';
         div.innerText = this.ertek.toString();
-        div.onclick = () => {
-            const ures = this.szabadHely();
+        div.onclick = function () {
+            var ures = _this.szabadHely();
             if (ures) {
-                this.szamotMozgat(ures.x, ures.y);
+                _this.szamotMozgat(ures.x, ures.y);
             }
         };
         return div;
-    }
-    szabadHely() {
-        const iranyok = [
+    };
+    Mezo.prototype.szabadHely = function () {
+        var iranyok = [
             { ix: -1, iy: 0 }, // bal
             { ix: 1, iy: 0 }, // jobb
             { ix: 0, iy: -1 }, // fel
             { ix: 0, iy: 1 } // le
         ];
-        for (let irany of iranyok) {
-            const ujX = this.x + irany.ix;
-            const ujY = this.y + irany.iy;
+        for (var _i = 0, iranyok_1 = iranyok; _i < iranyok_1.length; _i++) {
+            var irany = iranyok_1[_i];
+            var ujX = this.x + irany.ix;
+            var ujY = this.y + irany.iy;
             if (ujX >= 0 && ujX < this.meret && ujY >= 0 && ujY < this.meret) {
-                let foglalt = false;
-                for (let e of this.mezok) {
+                var foglalt = false;
+                for (var _a = 0, _b = this.mezok; _a < _b.length; _a++) {
+                    var e = _b[_a];
                     if (e.x === ujX && e.y === ujY) {
                         foglalt = true;
                         break;
@@ -59,6 +62,7 @@ class Mezo {
             }
         }
         return null;
-    }
-}
+    };
+    return Mezo;
+}());
 exports.Mezo = Mezo;

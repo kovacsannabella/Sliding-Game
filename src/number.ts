@@ -1,5 +1,3 @@
-import { formatDiagnostic } from "typescript";
-
 export class Mezo {
     ertek: number;
     x: number;
