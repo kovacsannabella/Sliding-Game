@@ -31,5 +31,18 @@ export class Mezo{
 
     }
 
+    Megjelenit(): HTMLDivElement {
+        const div = document.Megjelenit('div');
+        div.osztalyNev = 'number';
+        div.szoveg = this.ertek.toString();
+
+        div.onclick = () => {
+            const ures = this.szabadHely();
+            if (ures) {
+                this.szamotMozgat(ures.x, ures.y);
+            }
+        };
+        return div;
+    }
 
 }
