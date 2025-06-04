@@ -1,29 +1,41 @@
 .grid-container {
     display: grid;
     grid-template-columns: repeat(10, 1fr);
-    background-color: #ccc;
-    border: 3px solid orange;
-    margin: 0 auto;
-    gap: 4px;
-    max-width: 90vmin;
+    background-color: #f0f0f0;
+    margin: 20px auto;
+    gap: 6px;
+    max-width: 100vmin;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .grid-item {
-  border: 3px solid orange;
-  height: 30vh;
-  font-size: calc(30vh * 0.8);
-  aspect-ratio: 1 / 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    aspect-ratio: 1 / 1;
+    font-size: min(6vmin, 36px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px;
+    background-color: #ffffff;
+    transition: background-color 0.3s;
 }
 
-
 .number {
-  color: white;
-  background-color: red;
-  width: 100%;  
-  height: 100%;
-  text-align: center;
-  cursor: pointer;
+    color: #ffffff;
+    background-color: #2196f3;
+    width: 100%;  
+    height: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: inherit;
+    border-radius: 6px;
+    box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.2);
+}
+
+.grid-item:empty {
+    background-color: #e0e0e0;
+    border: 2px solid #bdbdbd;
 }
